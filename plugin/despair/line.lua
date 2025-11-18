@@ -1,6 +1,6 @@
 if vim.g.vim_distro ~= "despair.nvim" then return end
 
-local noremap = require("lib.remap").noremap
+local noremap = require("vim.remap").noremap
 
 noremap("i", "<A-k>", "<esc>ddkPi", { desc = "Moves line up" })
 noremap("i", "<A-j>", "<esc>ddpi", { desc = "Moves line down" })

@@ -8,9 +8,9 @@ vim.g.intro_executed = true
 -- Disable default intro message
 vim.opt.shortmess:append('I')
 
--- if vim.fn.argc() > 0 or not vim.g.has_ui then
---     return
--- end
+if vim.fn.argc() > 0 then
+    return
+end
 
 -- Set eventignore to avoid triggering plugin lazy-loading handlers
 local eventignore = vim.go.eventignore

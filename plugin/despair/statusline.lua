@@ -1,7 +1,7 @@
 -- if vim.g.vim_distro ~= "despair.nvim" then return end
 
-local hl = require("lib.highlight")
-local ti = require("lib.time")
+local hl = require("vim.highlight").get_highlight
+local ti = require("lua.async")
 
 local despair_statusline_reload_interval = nil
 
@@ -112,8 +112,8 @@ local start_stline = function()
 end
 
 if despair_statusline_reload_interval == nil then
-    local cs = require("lib.colorscheme")
-    cs.on_reload(gen_hl_groups)
+    local cs = require("sys.config")
+    cs.theme.on_reload(gen_hl_groups)
     start_stline()
 
     vim.api.nvim_create_user_command("StatuslineReset", reset_stline, {})

@@ -1,6 +1,6 @@
 if vim.g.vim_distro ~= "despair.nvim" then return end
 
-local noremap = require("lib.remap").noremap
+local noremap = require("vim.remap").noremap
 
 noremap("n", "<leader>j", function()
     local buffers = vim.api.nvim_exec2("ls", { output = true} )

@@ -101,6 +101,7 @@ hi! link Function                Number
 hi! link Identifier              Normal
 hi! link Include                 Special
 hi! link Keyword                 Normal
+" hi! link Keyword                 Type
 hi! link Label                   Normal
 hi! link Macro                   NormalBold
 hi! link MatchParen              Normal

@@ -1,7 +1,7 @@
 ---@diagnostic disable: missing-parameter
 if vim.g.vim_distro ~= "monolith.nvim" then return end
 
-local bufnoremap = require("lib.remap").bufnoremap
+local bufnoremap = require("vim.remap").bufnoremap
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 

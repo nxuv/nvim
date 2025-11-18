@@ -1,6 +1,6 @@
 if vim.g.vim_distro ~= "despair.nvim" then return end
 
-local noremap = require("lib.remap").noremap
+local noremap = require("vim.remap").noremap
 if vim.fn.executable("rg") ~= 1 or vim.g.use_search_find then
     noremap("n", "<leader>ff", [["<cmd>silent sfind! " . input("What")]], { desc = "[F]ind [F]iles" })
     noremap("n", "<leader>fg", [["<cmd>silent lgrep! " . input("What") . " | lopen"]], { desc = "[F]ile [G]rep", expr = true })

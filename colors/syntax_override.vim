@@ -27,6 +27,8 @@ hi! link cParenError              Normal
 hi! link cPreCondit               Define
 hi! link cPreConditMatch          Define
 hi! link cRepeat                  Statement
+hi! link cBlock                   Statement
+hi! link cLabel                   Statement
 hi! link cStorageClass            Type
 " CPP
 hi! link @lsp.type.macro.cpp      Constant
@@ -42,4 +44,5 @@ hi! link @punctuation.delimiter.d Delimiter
 hi! link @type.builtin.d          Type
 " To sort
 hi! link haxeFunction             Statement
-
+hi! link javaScriptReserved       Type
+hi! link javaScriptFunction       Type

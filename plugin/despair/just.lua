@@ -1,6 +1,6 @@
 if vim.g.vim_distro ~= "despair.nvim" then return end
 
-local noremap = require("lib.remap").noremap
+local noremap = require("vim.remap").noremap
 if vim.fn.executable("just") ~= 1 or vim.g.use_build_make then
     noremap("n", "<leader>bd", function() vim.cmd("make default") end)
     noremap("n", "<leader>bD", function() vim.cmd("make debug") end)

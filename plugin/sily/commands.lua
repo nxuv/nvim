@@ -49,11 +49,11 @@ end, { range = false, nargs = "+" })
 
 vim.api.nvim_create_user_command("SetColorscheme", function (opts)
     local args = opts.fargs[1]
-    require("lib.col").set(args)
+    require("sys.config").theme.set(args)
 end, { range = false, nargs = 1 })
 
 vim.api.nvim_create_user_command("SwitchDistro", function (opts)
-    require("lib.ver").set()
+    require("sys.config").distro.set()
 end, { range = false, nargs = 0 })
 
 -- vim.api.nvim_create_user_command('W', [[execute 'w !sudo -S tee % > /dev/null' <bar> edit!]], { range = false, nargs = 0 })

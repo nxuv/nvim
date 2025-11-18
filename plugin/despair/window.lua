@@ -1,6 +1,6 @@
 if vim.g.vim_distro ~= "despair.nvim" then return end
 
-local noremap = require("lib.remap").noremap
+local noremap = require("vim.remap").noremap
 
 -- TODO: make proper resize (using winshift funcs)
 noremap("n", "<A-C-h>",     "<C-w><", { desc = "Decrease split width" })

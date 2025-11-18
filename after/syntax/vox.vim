@@ -6,8 +6,8 @@ if exists("b:current syntax")
 	finish
 endif
 
-syn keyword voxKeywords return enum function alias struct if else while import
-syn keyword voxTypes void bool noreturn i8 i16 i32 i64 u8 u16 u32 u64 f32 f64 typeof(null) $alias $type $value
+syn keyword voxKeywords return enum function alias struct union if else while import module
+syn keyword voxTypes void bool noreturn i8 i16 i32 i64 u8 u16 u32 u64 f32 f64 typeof null $alias $type $value
 syn match voxComment "//.*$"
 
 syn match voxDecimalInt "\<-\=\(0\|[1-9]_\?\(\d\|\d\+_\?\d\+\)*\)\%([Ee][-+]\=\d\+\)\=\>"
