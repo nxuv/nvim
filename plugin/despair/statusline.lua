@@ -48,7 +48,8 @@ end
 local start_stline = function()
     reset_stline()
 
-    local interval_time = math.floor(250)
+    -- local interval_time = math.floor(250)
+    local interval_time = math.floor(1000 / 60)
 
     local draw_func = function()
         -- if vim.v.errmsg ~= "" then
@@ -101,7 +102,17 @@ local start_stline = function()
             return " [o o] Side ?"
         end
 
-        vim.opt.statusline = get_mode_hl() .. stline_get_mode() .. "%#DesStatusNormal# %f%m%h%r %=%v %{substitute(getcwd(),$HOME,'~','')} %{&ft}" .. get_tape() .. " " .. get_mode_hl() .. " %P %#Normal#"
+        local function get_selcount()
+            local m = vim.fn.mode()
+            if m ~= "v" and m ~= "" then return "" end
+            local len = vim.fn.virtcol(".") - vim.fn.virtcol("v")
+            len = math.abs(len) + 1
+            return len .. "/"
+        end
+
+        -- default statusline
+        -- set statusline=%<%f\ %h%w%m%r%=%-14.(%l,%c%V%)\ %P
+        vim.opt.statusline = get_mode_hl() .. stline_get_mode() .. "%#DesStatusNormal# %f%m%h%w%r %=" .. get_selcount() .. "%v %{substitute(getcwd(),$HOME,'~','')} %{&ft}" .. get_tape() .. " " .. get_mode_hl() .. " %P %#Normal#"
 
     end
 

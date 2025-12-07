@@ -2,6 +2,14 @@
 " General
 hi! link @variable                Normal
 hi! link @lsp.type.keyword        Type
+hi! link @keyword.type            Type
+hi! link @keyword.modifier        Statement
+hi! link @keyword.return          Statement
+hi! link @keyword.repeat          Statement
+hi! link @keyword.import          Statement
+hi! link @keyword.conditional     Statement
+hi! link @keyword.operator        Statement
+hi! link @keyword.function        Statement
 " Todos
 hi! link TodoFgWARN               Normal
 hi! link TodoFgTODO               Normal
@@ -32,6 +40,7 @@ hi! link cLabel                   Statement
 hi! link cStorageClass            Type
 " CPP
 hi! link @lsp.type.macro.cpp      Constant
+hi! link @lsp.type.macro          Constant
 "   hi!  link                     @lsp.type.macro.cpp NormalBold
 hi! link @lsp.type.macro.c        Constant
 "   hi!  link                     @lsp.type.macro.c   NormalBold

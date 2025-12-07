@@ -102,12 +102,12 @@ hi! link Identifier              Normal
 hi! link Include                 Special
 hi! link Keyword                 Normal
 " hi! link Keyword                 Type
-hi! link Label                   Normal
+hi! link Label                   Statement " Normal
 hi! link Macro                   NormalBold
 hi! link MatchParen              Normal
 hi! link NormalFloat             Normal
-hi! link PreProc                 Normal
-hi! link Precondit               Normal
+hi! link PreProc                 Number " Normal
+hi! link Precondit               NormalBold " Normal
 hi! link Question                Number
 hi! link Repeat                  Statement
 hi! link SpecialChar             Special

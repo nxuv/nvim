@@ -114,6 +114,7 @@ M.comment_sep = function()
     local c_row = cursor_pos[1]
     vim.api.nvim_buf_set_lines( 0, c_row - 1, c_row - 1, false, { "- " .. string.rep("-", 76) .. " -" })
     vim.fn.feedkeys("kgcc", "x")
+    vim.fn.feedkeys("==", "x")
     cursor_pos[1] = cursor_pos[1] + 1
     vim.api.nvim_win_set_cursor(0, cursor_pos)
 end
@@ -124,6 +125,7 @@ M.comment_line = function()
     local lines = vim.api.nvim_buf_get_lines(0, c_row - 1, c_row, false)
     vim.api.nvim_buf_set_lines( 0, c_row - 1, c_row, false, { pad_string_nor(lines[1]) })
     vim.fn.feedkeys("gcc", "x")
+    vim.fn.feedkeys("==", "x")
 end
 
 M.comment_box = function()
@@ -147,6 +149,7 @@ M.comment_box = function()
     vim.api.nvim_buf_set_lines( 0, vis_st - 1, vis_en, false, {})
     vim.api.nvim_buf_set_lines( 0, vis_st - 1, vis_st - 1, false, lines)
     vim.fn.feedkeys(tostring(vis_st) .. "ggV" .. tostring(vis_en + 2) .. "gggc", "x")
+    vim.fn.feedkeys(tostring(vis_st) .. "ggV" .. tostring(vis_en + 2) .. "gg==", "x")
     vim.fn.setpos(".", {0, vis_st, 1, 0})
 end
 

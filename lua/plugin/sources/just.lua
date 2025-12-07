@@ -6,14 +6,14 @@ return {
         dependencies = { "nvim-treesitter/nvim-treesitter" }
     },
     {
-        "al1-ce/just.nvim",
-        -- dir = "/g/al1-ce/just.nvim",
+        "nxuv/just.nvim",
+        -- dir = "/g/nxuv/just.nvim",
         dependencies = {
             'nvim-lua/plenary.nvim',
             'nvim-telescope/telescope.nvim',
             'rcarriga/nvim-notify',
             'j-hui/fidget.nvim',
-            "al1-ce/jsfunc.nvim",
+            "nxuv/jsfunc.nvim",
         },
         event = "VimEnter",
         opts = {
@@ -34,7 +34,7 @@ return {
             { "<leader>bR", "<cmd>Just release<cr>", mode = "n", noremap = true, silent = true, desc = "Run release task" },
             { "<leader>bf", "<cmd>Just file<cr>",    mode = "n", noremap = true, silent = true, desc = "Run file task" },
             { "<leader>bt", "<cmd>Just tags<cr>",    mode = "n", noremap = true, silent = true, desc = "Run tags task" },
-            { "<leader>ba", "<cmd>JustSelect<cr>",   mode = "n", noremap = true, silent = true, desc = "Open task selector" },
+            -- { "<leader>ba", "<cmd>JustSelect<cr>",   mode = "n", noremap = true, silent = true, desc = "Open task selector" },
             { "<leader>bs", "<cmd>JustStop<cr>",     mode = "n", noremap = true, silent = true, desc = "Stop current task" },
         },
     }
