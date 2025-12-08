@@ -62,6 +62,8 @@ vim.opt.undodir = backup_dir .. '/undos'      -- where to put undo files
 vim.opt.viewdir = backup_dir .. '/view'       -- where to store files for :mkview
 vim.opt.shada = "'100,<50,f50,n"..backup_dir.."/shada/shada"
 
+vim.g.markdown_fenced_languages = {'python', 'cpp', 'bash', 'd', 'c'}
+
 -- netrw config
 -- vim.g.netrw_cursor          = 5
 -- vim.g.netrw_browse_split    = 4 -- make cr behave open vsplit prev

@@ -2,6 +2,7 @@
 return {
     {
         'williamboman/mason.nvim',
+        enabled = false,
         event = "VimEnter",
         keys = {
             { "<leader>pm", "<cmd>Mason<cr>", mode = "n", noremap = true, silent = true, desc = "[P]lugin [M]ason" },

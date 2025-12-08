@@ -55,7 +55,6 @@ return {
                     language_code = "d",
                     exec_type = "compiled",
                     extension = "d",
-                    language_code = "d",
                     output_flag = "-of",
                     default_header = [[ import std; void main() { ]],
                     default_footer = [[ } ]],
