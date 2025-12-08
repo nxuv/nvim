@@ -4,7 +4,7 @@ return {
     -- FZF [ ;ff ;fr ;fp ;fg \ff ... ]
     {
         "ibhagwan/fzf-lua",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
+        -- dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             local fzf = require("fzf-lua")
             -- List of what I usually wouldn't need to see in fzf
@@ -96,39 +96,39 @@ return {
                 -- },
                 file_ignore_patterns = get_ignore_patterns(),
                 files = {
-                    prompt = " ",
+                    prompt = '> ',
                     cwd_prompt = false
                 },
                 git = {
-                    files = { prompt = " " },
-                    status = { prompt = " " },
-                    commits = { prompt = " " },
-                    bcommits = { prompt = " " },
-                    branches = { prompt = " " },
-                    stash = { prompt = " " },
+                    files = { prompt = '> ' },
+                    status = { prompt = '> ' },
+                    commits = { prompt = '> ' },
+                    bcommits = { prompt = '> ' },
+                    branches = { prompt = '> ' },
+                    stash = { prompt = '> ' },
                 },
                 grep = {
-                    prompt = " ",
-                    input_prompt = "󰑑 ",
+                    prompt = '> ',
+                    input_prompt = "> ",
                 },
-                args = { prompt = "⌥ " },
-                oldfiles = { prompt = " " },
-                buffers = { prompt = "﬘ " },
-                tabs = { prompt = "󰓩 " },
-                lines = { prompt = " " },
-                blines = { prompt = " " },
-                tags = { prompt = " " },
-                btags = { prompt = " " },
-                colorschemes = { prompt = " " },
-                keymaps = { prompt = " " },
-                quickfix = { prompt = " " },
-                quickfix_stack = { prompt = " " },
+                args = { prompt = '> ' },
+                oldfiles = { prompt = '> ' },
+                buffers = { prompt = '> ' },
+                tabs = { prompt = '> ' },
+                lines = { prompt = '> ' },
+                blines = { prompt = '> ' },
+                tags = { prompt = '> ' },
+                btags = { prompt = '> ' },
+                colorschemes = { prompt = '> ' },
+                keymaps = { prompt = '> ' },
+                quickfix = { prompt = '> ' },
+                quickfix_stack = { prompt = '> ' },
                 lsp = {
-                    prompt = "󰒋 ",
-                    code_actions = { prompt = " " },
-                    finder = { prompt = "﯒ " },
+                    prompt = '> ',
+                    code_actions = { prompt = '> ' },
+                    finder = { prompt = '> ' },
                 },
-                diagnostics = { prompt = " " }
+                diagnostics = { prompt = '> ' }
             })
         end,
         keys = {

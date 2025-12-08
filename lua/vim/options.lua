@@ -64,6 +64,10 @@ vim.opt.shada = "'100,<50,f50,n"..backup_dir.."/shada/shada"
 
 vim.g.markdown_fenced_languages = {'python', 'cpp', 'bash', 'd', 'c'}
 
+if vim.fn.executable("rg") == 1 then
+    vim.opt.grepprg = "rg --vimgrep --no-hidden --no-heading"
+end
+
 -- netrw config
 -- vim.g.netrw_cursor          = 5
 -- vim.g.netrw_browse_split    = 4 -- make cr behave open vsplit prev
