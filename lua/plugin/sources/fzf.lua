@@ -54,7 +54,7 @@ return {
                         border = "noborder",
                         vertical = "down:15%",
                         horizontal = "right:60%",
-                    }
+                    },
                 },
                 fzf_opts = {
                     ['--layout'] = 'reverse',
@@ -130,6 +130,8 @@ return {
                 },
                 diagnostics = { prompt = '> ' }
             })
+
+            fzf.register_ui_select()
         end,
         keys = {
             { "<leader>ff", "<cmd>FzfLua files<cr>",        mode = "n", noremap = true, silent = true, desc = "[F]ind [F]ile" },
