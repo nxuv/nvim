@@ -5,15 +5,8 @@ return {
     {
         "uga-rosa/ccc.nvim",
         event = { "BufEnter", "BufNew" },
-        opts = {
-            highlighter = {
-                auto_enable = true,
-                lsp = true
-            }
-        },
-        keys = {
-            { "<leader>cp", "<cmd>CccPick<cr>", mode = "n", noremap = true, silent = true, desc = "Opens color picker" },
-        },
+        opts = { highlighter = { auto_enable = true, lsp = true } },
+        keys = { { "<leader>cp", "<cmd>CccPick<cr>", mode = "n", noremap = true, silent = true, desc = "Opens color picker" }, },
     },
     {
         'jakemason/ouroboros',
@@ -29,9 +22,7 @@ return {
         },
         cmd = "Ouroboros",
         ft = { "c", "cpp" },
-        keys = {
-            { "gh", "<cmd>Ouroboros<cr>", mode = "n", noremap = true, silent = true, desc = "Switch to header", ft = { "c", "cpp" } },
-        }
+        keys = { { "gh", "<cmd>Ouroboros<cr>", mode = "n", noremap = true, silent = true, desc = "Switch to header", ft = { "c", "cpp" } }, }
     },
     {
         'numToStr/Comment.nvim',
@@ -100,17 +91,8 @@ return {
                 toggleIgnoreCase = "<C-c>",   -- ripgrep's `--ignore-case`
                 openAtRegex101 = "R",
             },
-            prefill = {
-                normal = false
-            },
+            prefill = { normal = false },
         },
-        keys = {
-            {
-                "<leader>rg",
-                function() require("rip-substitute").sub()  end,
-                mode = { "n", "x" },
-                desc = "[R]ipgrep [S]ubstitute",
-            },
-        },
+        keys = { { "<leader>rg", function() require("rip-substitute").sub()  end, mode = { "n", "x" }, desc = "[R]ipgrep [S]ubstitute", }, },
     },
 }

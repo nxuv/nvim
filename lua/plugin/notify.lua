@@ -30,10 +30,14 @@ if can_load("notify") then
     end
 
     vim.api.nvim_echo = function(chunks, history, opts)
+        if chunks == nil then return end
         local message = ""
         for i, v in ipairs(chunks) do
-            message = message .. "\n" .. v[1]
+            if v[1] ~= nil then
+                message = message .. "\n" .. v[1]
+            end
         end
+        if message == nil then return end
         notify(message, vim.log.levels.INFO)
     end
 

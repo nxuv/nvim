@@ -47,8 +47,6 @@ return {
             -- { "-", "<cmd>NnnPicker %:p<cr>", mode = "t", noremap = true, silent = true, desc = "[F]ile [J]ump" },
         }
     },
-    -- Goto quickfix files
-    { 'yssl/QFEnter' },
     {
         'yorickpeterse/nvim-pqf',
         enabled = true,
@@ -66,39 +64,11 @@ return {
             })
         end
     },
-    -- 'fladson/vim-kitty', -- just a syntax file
-    -- 'tikhomirov/vim-glsl', -- copied
-    -- Dart
-    'dart-lang/dart-vim-plugin',
-    -- Haxe
-    -- 'jdonaldson/vaxe',
-    -- 'natebosch/vim-lsc'
-    -- 'natebosch/vim-lsc-dart'
-    {
-        'Fymyte/rasi.vim',
-        ft = 'rasi',
-    },
-    -- {
-    --     -- dir = "/g/al1-ce/jsl/jsl.vim"
-    --     "jsl-lang/jsl.vim" -- copied
-    -- },
-    {
-        "hat0uma/csvview.nvim",
-        opts = { view = { display_mode = "border" } }
-    },
-    {
-        "IndianBoy42/tree-sitter-just",
-        dependencies = { "nvim-treesitter/nvim-treesitter" }
-    },
     -- Move splits [ A-S-Right ... ]
     {
         'sindrets/winshift.nvim',
         event = "VimEnter",
-        opts = {
-            keymaps = {
-                disable_defaults = false,
-            }
-        },
+        opts = { keymaps = { disable_defaults = false, } },
         keys = {
             { "<A-S-left>",  "<cmd>WinShift left<cr>",  mode = "n", noremap = true, silent = true, desc = "Moves window left" },
             { "<A-S-right>", "<cmd>WinShift right<cr>", mode = "n", noremap = true, silent = true, desc = "Moves window right" },

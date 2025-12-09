@@ -4,7 +4,7 @@ return {
     -- FZF [ ;ff ;fr ;fp ;fg \ff ... ]
     {
         "ibhagwan/fzf-lua",
-        -- dependencies = { "nvim-tree/nvim-web-devicons" },
+        enabled = true,
         config = function()
             local fzf = require("fzf-lua")
             -- List of what I usually wouldn't need to see in fzf

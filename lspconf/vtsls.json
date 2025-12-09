@@ -1,5 +1,0 @@
-{
-    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-    "javascript.format.semicolons": "insert",
-    "js/ts.implicitProjectConfig.module": "CommonJS"
-}
