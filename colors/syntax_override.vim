@@ -19,6 +19,13 @@ hi! link TodoFgNOTE               Normal
 hi! link TodoFgLINK               Normal
 hi! link TodoFgHACK               Normal
 hi! link TodoFgFIX                Normal
+" CMP
+hi! link CmpItemAbbr              Normal
+hi! link CmpItemAbbrMatch         Number
+hi! link CmpItemAbbrMatchFuzzy    Statement
+hi! link CmpItemAbbrDeprecated    Comment
+hi! link CmpItemKind              Normal
+hi! link CmpItemMenu              CmpItemKind
 " Lua TS Keyword
 hi! link @keyword.conditional.lua Statement
 hi! link @keyword.function.lua    Statement

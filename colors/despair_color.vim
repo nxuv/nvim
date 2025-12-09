@@ -60,9 +60,9 @@ hi LineNr          ctermfg=gray       cterm=none      guifg=#b9b9b9 gui=none    
 hi Number          ctermfg=blue       cterm=none      guifg=#5f819d gui=bold      guibg=none
 hi Boolean         ctermfg=blue       cterm=none      guifg=#5f819d gui=bold      guibg=none
 hi Operator        ctermfg=white      cterm=bold      guifg=#b9b9b9 gui=bold      guibg=none
-hi Pmenu           ctermfg=white      cterm=none      guifg=#b9b9b9 gui=none      guibg=#252525
+hi Pmenu           ctermfg=white      cterm=none      guifg=#b9b9b9 gui=none      guibg=#151515
 hi PmenuSbar       ctermfg=white      cterm=none      guifg=#b9b9b9 gui=none      guibg=#252525
-hi PmenuSel        ctermfg=white      cterm=bold      guifg=#f7f7f7 gui=bold      guibg=#252525
+hi PmenuSel        ctermfg=white      cterm=bold      guifg=none    gui=bold      guibg=#252525
 hi PmenuThumb      ctermfg=white      cterm=none      guifg=#b9b9b9 gui=none      guibg=none
 hi SignColumn      ctermfg=darkgray   cterm=none      guifg=#8e8e8e gui=none      guibg=none
 hi Special         ctermfg=darkyellow cterm=bold      guifg=#af8431 gui=bold      guibg=none
