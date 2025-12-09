@@ -78,6 +78,7 @@ return {
                     ["<C-n>"] = next_item, ["<Tab>"] = next_item, ["<C-p>"] = prev_item, ["<S-Tab>"] = prev_item,
                     ["<C-y>"] = cmp.mapping(cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true, }), { "i", "c" }),
                 },
+                -- { name = "nvim_lsp", entry_filter = function(e, _) return cmp.lsp.CompletionItemKind.Snippet ~= e:get_kind() end }
                 sources = cmp.config.sources({ { name = 'nvim_lsp' }, }, { { name = 'buffer' }, }),
                 window = {
                     completion = {
@@ -87,7 +88,7 @@ return {
                     },
                     documentation = { border = "single", }
                 },
-                experimental = { ghost_text = "Comment" },
+                -- experimental = { ghost_text = "Comment" },
                 formatting = {
                     fields = { "abbr", "kind", "menu" },
                     format = function(p_entry, p_vim_item)
