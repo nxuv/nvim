@@ -1,5 +1,5 @@
-local bufnoremap = require("vim.remap").bufnoremap
-local bufremap   = require("vim.remap").bufremap
+local bufnoremap = require("remap").bufnoremap
+local bufremap   = require("remap").bufremap
 
 -- nr("s", "o")
 bufremap("n", ".", "gh")

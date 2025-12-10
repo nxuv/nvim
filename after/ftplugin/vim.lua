@@ -1,5 +1,4 @@
-local bufnoremap = require("vim.remap").bufnoremap
-local remap      = require("vim.remap").remap
+local bufnoremap = require("remap").bufnoremap
 
 bufnoremap("n", "<leader>xf", "<cmd>w<cr><cmd>source %<cr>", { desc = "E[X]ecute [F]ile" })
 

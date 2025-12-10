@@ -5,11 +5,8 @@ local t = vim.w.quickfix_title
 if t == nil then return end
 
 -- custom qf and loc that are used as replacement for fzf
-
-if t:starts_with(":lexpr ['--") then
+if vim.startswith(t, ":lexpr ['--") then
     map("<cr>", "<cmd>.ll<cr><cmd>wincmd p<cr><cmd>q<cr>")
 end
 
-if t:starts_with(":cexpr ['--") then
-
-end
+-- if vim.startswith(t, ":cexpr ['--") then end

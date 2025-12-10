@@ -2,3 +2,4 @@ lua/.luarc.json
 # plugin/
 .vscode/
 lazy-lock.json
+.vim-session

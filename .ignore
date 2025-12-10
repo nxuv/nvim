@@ -1,0 +1,8 @@
+# Tells FZF to ignore those files
+/colors/*
+!/colors/despair.vim
+!/colors/despair_color.vim
+!/colors/syntax_override.vim
+/after/syntax/
+/docs/
+/lazy-lock.json
