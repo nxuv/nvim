@@ -32,7 +32,7 @@ cmp.setup({
         ["<C-y>"] = cmp.mapping(cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true, }), { "i", "c" }),
     },
     -- { name = "nvim_lsp", entry_filter = function(e, _) return cmp.lsp.CompletionItemKind.Snippet ~= e:get_kind() end }
-    sources = cmp.config.sources({ { name = 'nvim_lsp' }, }, { { name = 'buffer' }, }),
+    sources = cmp.config.sources({ { name = 'nvim_lsp' }, }, { { name = 'buffer' }, { name = 'path', option = { pathMappings = { ["@"] = "${folder}/src" } } } }),
     window = {
         completion = {
             col_offset = -3,

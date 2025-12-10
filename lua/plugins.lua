@@ -38,12 +38,10 @@ vim.pack.add({
     "https://github.com/neovim/nvim-lspconfig",
     -- completion
     "https://github.com/hrsh7th/nvim-cmp",
-    -- completion lsp source
     "https://github.com/hrsh7th/cmp-nvim-lsp",
-    -- completion buffer source
     "https://github.com/hrsh7th/cmp-buffer",
-    -- completion commandline source
     "https://github.com/hrsh7th/cmp-cmdline",
+    "https://github.com/hrsh7th/cmp-path",
     -- show diagnostic number in top right
     "https://github.com/ivanjermakov/troublesum.nvim",
     -- language highlights and such

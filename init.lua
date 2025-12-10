@@ -2,9 +2,7 @@
 
 require("theme").setup()
 
-if vim.g.vim_distro == "despair.nvim" then
-    vim.treesitter.start = function(_b, _n) end
-end
+if vim.g.vim_distro == "despair.nvim" then vim.treesitter.start = function(_b, _n) end end
 
 vim.g.mapleader      = ";"
 vim.g.maplocalleader = ","
@@ -12,7 +10,5 @@ vim.g.maplocalleader = ","
 require("options")
 require("keymap")
 
-if vim.g.vim_distro == "monolith.nvim" then
-    require("plugins")
-end
+if vim.g.vim_distro == "monolith.nvim" then require("plugins") end
 
