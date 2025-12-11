@@ -164,51 +164,9 @@ M.theme.set = function(name)
     f:close();
 end
 
-M.dependency.fail_required = function (dep)
-    M.dependency.failed = M.dependency.failed .. "\n" .. dep
-end
-
----@param _deps string[]
-M.dependency.check_required = function (_deps)
-    local cond = true
-    for _, val in ipairs(_deps) do
-        if vim.fn.executable(val) ~= 1 then
-            require("lua.error")("'Failed to find " .. val .. " binary on system'")
-            -- sysdepman.add_dep(table.concat(deps, "\n"))
-            M.dependency.fail_required(val .. "\n")
-            cond = false
-        end
-    end
-    return cond
-end
-
 M.setup = function()
     M.plugins.source();
     M.theme.source();
-
-    if vim.g.plugins_enabled then
-        M.dependency.check_required({
-            "aplay",
-            "cc",
-            "curl",
-            "fd",
-            "fzf",
-            "git",
-            "gzip",
-            "node",
-            "rg",
-            "tar",
-            "tree-sitter",
-            "unzip",
-        })
-    else
-        M.dependency.check_required({
-            "rg"
-        })
-    end
-
-
-    if M.dependency.failed ~= "" then vim.notify("Missing required dependencies:\n" .. M.dependency.failed) end
 end
 
 return M

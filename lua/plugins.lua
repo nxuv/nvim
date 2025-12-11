@@ -67,6 +67,6 @@ vim.pack.add({
     "https://github.com/luukvbaal/nnn.nvim"
 })
 
-require("lazy").setup({ spec = { packages }, change_detection = { enabled = false, notify = false, } })
+require("lazy").setup({ spec = { packages }, change_detection = { enabled = false, notify = false, }, rocks = { enabled = false } })
 
 

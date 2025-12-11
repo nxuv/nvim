@@ -21,26 +21,15 @@ Anyway better go to [one of other places](#other-places).
                    worthy of being of plugin or want to autoload
 ```
 
-## Requirements (in parens - package names, unless same)
+## Setup
 
-Pluginless:
-- rg (ripgrep)
+```bash
+cd ~/.config
+git clone git@github.com:nxuv/nvim.git
+cd nvim
+./getdeps.sh
+```
 
-Pluginlessless (TODO: %gork is this true?):
-- aplay (alsa-utils)
-- cc (any c compiler)
-- curl
-- fd
-- fzf
-- git
-- gzip
-- node (nodejs)
-- rg (ripgrep)
-- tar
-- tree-sitter (npm install -g tree-sitter-cli)
-- unzip
-
-TODO: remove dependency check from lua/theme.lua
 TODO: starve it even more
 
 ## Other Places
