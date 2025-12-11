@@ -41,7 +41,6 @@ Pluginlessless (TODO: %gork is this true?):
 - unzip
 
 TODO: remove dependency check from lua/theme.lua
-TODO: remove cringe
 TODO: starve it even more
 
 ## Other Places

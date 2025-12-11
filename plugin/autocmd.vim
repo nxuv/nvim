@@ -1,3 +1,6 @@
+" DOES NOT INCLUDE NON-GENERAL OR LUA AUTOCMD'S
+" SEARCH FOR nvim_create_autocmd TO FIND OTHERS
+
 augroup HighlightYankedText
     autocmd!
     autocmd TextYankPost * silent! lua vim.hl.on_yank {higroup='Visual', timeout=300}

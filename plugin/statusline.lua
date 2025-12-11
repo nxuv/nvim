@@ -1,8 +1,6 @@
--- if vim.g.vim_distro ~= "despair.nvim" then return end
-
 local hl = require("theme").get_highlight
 
-local despair_statusline_reload_interval = nil
+local custom_statusline_reload_interval = nil
 
 local gen_hl_groups = function()
     local colors = {
@@ -26,21 +24,21 @@ local gen_hl_groups = function()
         return r
     end
 
-    vim.api.nvim_set_hl(0, "DesStatusNormal",     get_hl_table(colors.fore, colors.back))
-    vim.api.nvim_set_hl(0, "DesStatusNormalBold", get_hl_table(colors.fore, colors.back,   { bold = true } ))
-    vim.api.nvim_set_hl(0, "DesStatusInsert",     get_hl_table(colors.fore, colors.insert, { bold = true } ))
-    vim.api.nvim_set_hl(0, "DesStatusReplace",    get_hl_table(colors.replace, nil, { bold = true, reverse = true } ))
-    vim.api.nvim_set_hl(0, "DesStatusVisual",     get_hl_table(colors.visual , nil, { bold = true, reverse = true } ))
-    vim.api.nvim_set_hl(0, "DesStatusCommand",    get_hl_table(colors.command, nil, { bold = true, reverse = true } ))
-    vim.api.nvim_set_hl(0, "DesStatusRedFg",      get_hl_table(colors.replace, nil))
+    vim.api.nvim_set_hl(0, "CustomStatusNormal",     get_hl_table(colors.fore, colors.back))
+    vim.api.nvim_set_hl(0, "CustomStatusNormalBold", get_hl_table(colors.fore, colors.back,   { bold = true } ))
+    vim.api.nvim_set_hl(0, "CustomStatusInsert",     get_hl_table(colors.fore, colors.insert, { bold = true } ))
+    vim.api.nvim_set_hl(0, "CustomStatusReplace",    get_hl_table(colors.replace, nil, { bold = true, reverse = true } ))
+    vim.api.nvim_set_hl(0, "CustomStatusVisual",     get_hl_table(colors.visual , nil, { bold = true, reverse = true } ))
+    vim.api.nvim_set_hl(0, "CustomStatusCommand",    get_hl_table(colors.command, nil, { bold = true, reverse = true } ))
+    vim.api.nvim_set_hl(0, "CustomStatusRedFg",      get_hl_table(colors.replace, nil))
 
 end
 
 local reset_stline = function()
-    if despair_statusline_reload_interval ~= nil then
-        despair_statusline_reload_interval:stop()
-        despair_statusline_reload_interval:close()
-        despair_statusline_reload_interval = nil
+    if custom_statusline_reload_interval ~= nil then
+        custom_statusline_reload_interval:stop()
+        custom_statusline_reload_interval:close()
+        custom_statusline_reload_interval = nil
         vim.notify("Cleared statusline reload interval")
     end
 end
@@ -74,27 +72,27 @@ local start_stline = function()
 
         local function get_mode_hl()
             local m = vim.fn.mode()
-            if m == "n"  then return "%#DesStatusNormalBold#" end
-            if m == "R"  then return "%#DesStatusReplace#" end
-            if m == "v"  then return "%#DesStatusVisual#" end
-            if m == "V"  then return "%#DesStatusVisual#" end
-            if m == "" then return "%#DesStatusVisual#" end
-            if m == "t"  then return "%#DesStatusInsert#" end
-            if m == "o"  then return "%#DesStatusInsert#" end
-            if m == "c"  then return "%#DesStatusInsert#" end
-            if m == "i"  then return "%#DesStatusInsert#" end
-            return "%#DesStatusNormalBold#"
+            if m == "n"  then return "%#CustomStatusNormalBold#" end
+            if m == "R"  then return "%#CustomStatusReplace#" end
+            if m == "v"  then return "%#CustomStatusVisual#" end
+            if m == "V"  then return "%#CustomStatusVisual#" end
+            if m == "" then return "%#CustomStatusVisual#" end
+            if m == "t"  then return "%#CustomStatusInsert#" end
+            if m == "o"  then return "%#CustomStatusInsert#" end
+            if m == "c"  then return "%#CustomStatusInsert#" end
+            if m == "i"  then return "%#CustomStatusInsert#" end
+            return "%#CustomStatusNormalBold#"
         end
 
         local function get_tape()
             local reg_cur = vim.fn.toupper(vim.fn.reg_recorded())
             local reg_rec = vim.fn.toupper(vim.fn.reg_recording())
             if reg_rec ~= "" then
-                local stage = math.floor((vim.loop.now() / 250) % 4)
-                if stage == 0     then return "%#DesStatusRedFg# [o o] Recording " .. reg_rec .. "...%#Normal#" end
-                if stage % 4 == 1 then return "%#DesStatusRedFg# [o⠠o] Recording " .. reg_rec .. "...%#Normal#" end
-                if stage % 4 == 2 then return "%#DesStatusRedFg# [o⠤o] Recording " .. reg_rec .. "...%#Normal#" end
-                if stage % 4 == 3 then return "%#DesStatusRedFg# [o⠄o] Recording " .. reg_rec .. "...%#Normal#" end
+                local stage = math.floor(((vim.loop or vim.uv).now() / 250) % 4)
+                if stage == 0     then return "%#CustomStatusRedFg# [o o] Recording " .. reg_rec .. "...%#Normal#" end
+                if stage % 4 == 1 then return "%#CustomStatusRedFg# [o⠠o] Recording " .. reg_rec .. "...%#Normal#" end
+                if stage % 4 == 2 then return "%#CustomStatusRedFg# [o⠤o] Recording " .. reg_rec .. "...%#Normal#" end
+                if stage % 4 == 3 then return "%#CustomStatusRedFg# [o⠄o] Recording " .. reg_rec .. "...%#Normal#" end
             end
             if reg_cur ~= "" then
                 return " [o o] Side " .. reg_cur
@@ -112,7 +110,7 @@ local start_stline = function()
 
         -- default statusline
         -- set statusline=%<%f\ %h%w%m%r%=%-14.(%l,%c%V%)\ %P
-        vim.opt.statusline = get_mode_hl() .. stline_get_mode() .. "%#DesStatusNormal# %f%m%h%w%r %=" .. get_selcount() .. "%v %{substitute(getcwd(),$HOME,'~','')} %{&ft}" .. get_tape() .. " " .. get_mode_hl() .. " %P %#Normal#"
+        vim.opt.statusline = get_mode_hl() .. stline_get_mode() .. "%#CustomStatusNormal# %f%m%h%w%r %=" .. get_selcount() .. "%v %{substitute(getcwd(),$HOME,'~','')} %{&ft}" .. get_tape() .. " " .. get_mode_hl() .. " %P %#Normal#"
 
     end
 
@@ -120,13 +118,13 @@ local start_stline = function()
     gen_hl_groups()
     draw_func()
 
-    despair_statusline_reload_interval = (vim.loop or vim.uv).new_timer()
-    despair_statusline_reload_interval:start(interval_time, interval_time, function()
+    custom_statusline_reload_interval = (vim.loop or vim.uv).new_timer()
+    custom_statusline_reload_interval:start(interval_time, interval_time, function()
         vim.schedule(draw_func)
     end)
 end
 
-if despair_statusline_reload_interval == nil then
+if custom_statusline_reload_interval == nil then
     require("theme").theme.on_reload(gen_hl_groups)
     start_stline()
 

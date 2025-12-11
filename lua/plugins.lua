@@ -1,7 +1,7 @@
 -- https://neovim.io/doc/user/pack.html
 -- https://bower.sh/nvim-builtin-plugin-mgr
 -- https://lsp-zero.netlify.app/docs/
-if vim.version().minor == 12 then vim.notify("MIGRATE TO vim.pack", vim.log.levels.ERROR); return end
+if vim.version().minor == 12 then vim.notify("lua/plugins.lua(4): error: MIGRATE TO vim.pack", vim.log.levels.ERROR); return end
 
 local packages = {}
 

@@ -1,6 +1,6 @@
 -- nvim settings
 
-if vim.g.vim_distro == "monolith.nvim" then
+if vim.g.plugins_enabled then
     vim.opt.cmdheight = 0
 else
     vim.loader.enable()

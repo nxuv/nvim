@@ -47,13 +47,13 @@ vim.api.nvim_create_user_command("OpenWith", function (opts)
     vim.system(args)
 end, { range = false, nargs = "+" })
 
-vim.api.nvim_create_user_command("SetColorscheme", function (opts)
-    local args = opts.fargs[1]
-    require("theme").theme.set(args)
-end, { range = false, nargs = 1 })
+vim.api.nvim_create_autocmd("ColorScheme", {
+    group = vim.api.nvim_create_augroup("AutoWriteColorScheme", {clear = true}),
+    callback = function(args) require("theme").theme.set(args.match) end
+})
 
-vim.api.nvim_create_user_command("SwitchDistro", function (_)
-    require("theme").distro.set()
+vim.api.nvim_create_user_command("PluginsToggle", function (_)
+    require("theme").plugins.toggle()
 end, { range = false, nargs = 0 })
 
 -- vim.api.nvim_create_user_command('W', [[execute 'w !sudo -S tee % > /dev/null' <bar> edit!]], { range = false, nargs = 0 })

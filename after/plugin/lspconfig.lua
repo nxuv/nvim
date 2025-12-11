@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 })
 
-if vim.g.vim_distro ~= "monolith.nvim" then return end
+if not vim.g.plugins_enabled then return end
 
 -- https://mason-registry.dev/registry/list
 

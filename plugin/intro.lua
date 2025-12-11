@@ -16,13 +16,7 @@ end
 local eventignore = vim.go.eventignore
 vim.go.eventignore = 'all'
 
--- local logo = vim.g.modern_ui and 'M Λ C R O' or 'M A C R O'
-local logo = "U N K N O W N"
-if vim.g.vim_distro == "monolith.nvim" then
-    logo =                                    'M O N O L I T H'
-else
-    logo =                                    'D E S P A I R'
-end
+local logo = 'S T E L L A R'
 
 ---@class intro_chunk_t
 ---@field text string
@@ -36,6 +30,19 @@ end
 ---@field width integer?
 ---@field offset integer?
 
+vim.cmd([[
+    hi CustomIntroDim gui=underline guifg=NvimDarkGrey4
+]])
+
+if vim.version().minor == 12 then vim.notify("plugin/intro.lua(4): error: MIGRATE TO vim.pack", vim.log.levels.ERROR); return end
+local plugin_text = nil
+if vim.g.plugins_enabled then
+    --                                  Current date is 22.22.22
+    plugin_text = { chunks = {{ text = "Extension status - ON:" .. #(require("lazy").plugins()), hl = "CustomIntroDim" }} }
+else
+    plugin_text = { chunks = {{ text = "Extension status - OFF:0", hl = "NonText"  }} }
+end
+
 ---Lines of text and highlight groups to display as intro message
 ---@type intro_line_t[]
 local lines = {
@@ -44,8 +51,9 @@ local lines = {
         { text = ' :: N V I M',            hl = 'NonText' },
     }, },
     { chunks = {
-        { text = string.format("Current date is %s", os.date('!%d.%m.%Y', os.time())), hl = 'NonText', },
+        { text = string.format("Current date is %s", os.date('!%d.%m.%y', os.time())), hl = 'NonText', },
     }, },
+    plugin_text
 }
 
 ---Window configuration for the intro message floating window
@@ -62,6 +70,7 @@ local win_config = {
 
 ---Calculate the width, offset, concatenated text, etc.
 for _, line in ipairs(lines) do
+    if line == nil then goto continue end
     line.text = ''
     line.width = 0
     for _, chunk in ipairs(line.chunks) do
@@ -73,6 +82,7 @@ for _, line in ipairs(lines) do
     if line.width > win_config.width then
         win_config.width = line.width
     end
+    ::continue::
 end
 
 for _, line in ipairs(lines) do

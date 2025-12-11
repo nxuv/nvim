@@ -21,6 +21,7 @@ if require("modules").try_setup("rip-substitute", {
     prefill = { normal = false },
 }) then
     noremap("n", "<leader>rg", function() require("rip-substitute").sub() end, { desc = "[R]ipgrep [S]ubstitute" })
+    noremap("x", "<leader>rg", function() require("rip-substitute").sub() end, { desc = "[R]ipgrep [S]ubstitute" })
 else
     noremap("n", "<leader>rg", function()
         local g = vim.fn.input("Grep pattern: ")
@@ -52,4 +53,5 @@ else
             end
         end
     end, { desc = "[R]ip[G]rep" })
+    noremap("x", "<leader>rg", "<nop>")
 end

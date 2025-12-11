@@ -3,7 +3,7 @@
 local M = {
     on_reload_listeners = {},
 
-    distro = {},
+    plugins = {},
 
     theme = {},
 
@@ -92,38 +92,49 @@ M.get_theme = function()
     return S
 end
 
-M.distro.config_loc = vim.fn.fnamemodify(vim.fn.expand("$HOME"), ":p:h") .. "/.config/neovim-distro.lua"
+M.plugins.config_dir = vim.fn.stdpath("data") .. "/config"
+M.plugins.config_loc = M.plugins.config_dir .. "/plugins.lua"
 
-M.distro.source = function()
-    local f = io.open(M.distro.config_loc, "r")
+M.plugins.source = function()
+    if vim.fn.isdirectory(M.plugins.config_dir) == 0 then
+        vim.fn.mkdir(M.plugins.config_dir, "p")
+    end
+    local f = io.open(M.plugins.config_loc, "r")
     if not f then
-        f = io.open(M.distro.config_loc, "w")
-        if not f then vim.notify("Failed to write to distro config!"); return end
-        f:write("vim.g.vim_distro = 'despair.nvim'")
+        f = io.open(M.plugins.config_loc, "w")
+        if not f then vim.notify("Failed to write to plugins config!"); return end
+        f:write("vim.g.plugins_enabled = false")
     end
     f:close()
-    vim.cmd("source " .. M.distro.config_loc)
+    vim.cmd("source " .. M.plugins.config_loc)
 end
 
-M.distro.set = function()
-    -- print(vim.inspect(name))
+M.plugins.toggle = function()
+    if vim.g.plugins_enabled then
+        vim.g.plugins_enabled = false
+    else
+        vim.g.plugins_enabled = true
+    end
 
-    local new_dist = "monolith.nvim"
-    if vim.g.vim_distro == new_dist then new_dist = "despair.nvim" end
-
-    (vim.loop or vim.uv).fs_open(M.distro.config_loc, "w", 432, function(err, fd)
-        (vim.loop or vim.uv).fs_write(fd, "vim.g.vim_distro = '" .. new_dist .. "'", nil, function()
-            (vim.loop or vim.uv).fs_close(fd)
-        end)
-    end)
+    local f = io.open(M.plugins.config_loc, "w")
+    if not f then
+       vim.notify("Failed to write to plugins config!");
+       return
+    end
+    f:write("vim.g.plugins_enabled = " .. tostring(vim.g.plugins_enabled))
+    f:close();
 end
 
 M.theme.on_reload = function(func) table.insert(M.on_reload_listeners, func) end
 M.theme.on_reload_now = function(func) func(); table.insert(M.on_reload_listeners, func) end
 
-M.theme.config_loc = vim.fn.fnamemodify(vim.fn.expand("$HOME"), ":p:h") .. "/.config/neovim-theme.lua"
+M.theme.config_dir = vim.fn.stdpath("data") .. "/config"
+M.theme.config_loc = M.theme.config_dir .. "/theme.lua"
 
 M.theme.source = function()
+    if vim.fn.isdirectory(M.theme.config_dir) == 0 then
+        vim.fn.mkdir(M.theme.config_dir, "p")
+    end
     local f = io.open(M.theme.config_loc, "r")
     if not f then
         f = io.open(M.theme.config_loc, "w")
@@ -141,14 +152,16 @@ M.theme.set = function(name)
 
     for _, f in ipairs(M.on_reload_listeners) do
         pcall(f)
-        print(vim.inspect(f))
+        -- print(vim.inspect(f))
     end
 
-    (vim.loop or vim.uv).fs_open(M.theme.config_loc, "w", 432, function(err, fd)
-        (vim.loop or vim.uv).fs_write(fd, "vim.cmd.colorscheme('" .. name .. "')", nil, function()
-            (vim.loop or vim.uv).fs_close(fd)
-        end)
-    end)
+    local f = io.open(M.theme.config_loc, "w")
+    if not f then
+       vim.notify("Failed to write to theme config!");
+       return
+    end
+    f:write("vim.cmd.colorscheme('" .. name .. "')")
+    f:close();
 end
 
 M.dependency.fail_required = function (dep)
@@ -170,10 +183,10 @@ M.dependency.check_required = function (_deps)
 end
 
 M.setup = function()
-    M.distro.source();
+    M.plugins.source();
     M.theme.source();
 
-    if vim.g.vim_distro == "monolith.nvim" then
+    if vim.g.plugins_enabled then
         M.dependency.check_required({
             "aplay",
             "cc",

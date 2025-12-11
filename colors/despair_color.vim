@@ -8,7 +8,7 @@ if exists("syntax on")
     syntax reset
 endif
 
-let g:colors_name = "despair colorful"
+let g:colors_name = "despair_color"
 
 " Background: dark
 " Color: black         #101010 ~
