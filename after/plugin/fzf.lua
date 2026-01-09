@@ -109,13 +109,8 @@ if require("modules").can_load("fzf-lua") then
     fzf.register_ui_select()
 
     noremap("n", "<leader>ff", "<cmd>FzfLua files<cr>"           , { desc = "[F]ind [F]ile" } )
-    noremap("n", "<leader>fr", "<cmd>FzfLua oldfiles<cr>"        , { desc = "[F]ile [R]ecent" } )
     noremap("n", "<leader>fg", "<cmd>FzfLua grep_project<cr>"    , { desc = "[F]ile [G]rep" } )
-    noremap("n", "<leader>fa", "<cmd>FzfLua git_files<cr>"       , { desc = "[F]ile [A]ll" } )
-    noremap("n", "<leader>fp", "<cmd>FzfLuaProjects<cr>"         , { desc = "[F]ind [P]roject" } )
-    noremap("n", "<leader>fm", "<cmd>FzfLua marks<cr>"           , { desc = "[F]ind [M]arks" } )
     noremap("n", "<leader>fk", "<cmd>FzfLua keymaps<cr>"         , { desc = "[F]ind [K]eys" } )
-    noremap("n", "<leader>fl", "<cmd>FzfLua blines<cr>"          , { desc = "[F]ile search [L]ines" })
     noremap("n", "<leader>ca", "<cmd>FzfLua lsp_code_actions<cr>", { desc = "[C]ode [A]ctions" } )
 else
     local noremap = require("remap").noremap

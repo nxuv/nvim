@@ -62,3 +62,28 @@ hi! link @type.builtin.d          Type
 hi! link haxeFunction             Statement
 hi! link javaScriptReserved       Type
 hi! link javaScriptFunction       Type
+"hi! link elinksColorBlack         NormalInvert
+hi!      elinksColorBlack         ctermfg=Black       guifg=Black  ctermbg=White guibg=White gui=bold cterm=bold
+hi!      elinksColorDarkRed       ctermfg=DarkRed     guifg=DarkRed
+hi!      elinksColorDarkGreen     ctermfg=DarkGreen   guifg=DarkGreen
+hi!      elinksColorDarkYellow    ctermfg=DarkYellow  guifg=DarkYellow
+hi!      elinksColorDarkBlue      ctermfg=DarkBlue    guifg=DarkBlue
+hi!      elinksColorDarkMagenta   ctermfg=DarkMagenta guifg=DarkMagenta
+hi!      elinksColorDarkCyan      ctermfg=DarkCyan    guifg=DarkCyan
+hi!      elinksColorGray          ctermfg=Gray        guifg=Gray
+hi!      elinksColorDarkGray      ctermfg=DarkGray    guifg=DarkGray
+hi!      elinksColorRed           ctermfg=Red         guifg=Red
+hi!      elinksColorGreen         ctermfg=Green       guifg=Green
+hi!      elinksColorYellow        ctermfg=Yellow      guifg=Yellow
+hi!      elinksColorBlue          ctermfg=Blue        guifg=Blue
+hi!      elinksColorMagenta       ctermfg=Magenta     guifg=Magenta
+hi!      elinksColorCyan          ctermfg=Cyan        guifg=Cyan
+hi!      elinksColorWhite         ctermfg=White       guifg=White ctermbg=Black guibg=Black gui=bold cterm=bold
+
+hi! link perlPOD Comment
+hi! link podOrdinary Comment
+hi podCommand ctermfg=blue cterm=none guifg=#af8431 gui=none guibg=none
+hi podVerbatim ctermfg=blue cterm=none guifg=#50616f gui=none guibg=none
+hi podFormat ctermfg=cyan cterm=none guifg=#61837e gui=none guibg=none
+hi podCmdText ctermfg=cyan cterm=none guifg=#6d7144 gui=none guibg=none
+"hi! link podFormat Normal

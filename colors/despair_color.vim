@@ -52,6 +52,7 @@ hi Cursor term=reverse cterm=reverse gui=reverse
 hi Search term=reverse cterm=reverse gui=reverse
 
 hi Normal          ctermfg=white      cterm=none      guifg=#b9b9b9 gui=none      guibg=#101010
+hi NormalInvert    ctermfg=black      cterm=bold      guifg=#101010 gui=bold      guibg=#b9b9b9
 hi NormalBold      ctermfg=white      cterm=bold      guifg=#b9b9b9 gui=bold      guibg=none
 hi Comment         ctermfg=darkgray   cterm=none      guifg=#6e6e6e gui=none      guibg=none
 hi CursorLine      ctermfg=none       cterm=none      guifg=none    gui=none      guibg=none
@@ -74,19 +75,20 @@ hi VisualNOS       ctermfg=white      cterm=none      guifg=#b9b9b9 gui=none    
 hi ExtraWhitespace ctermfg=red        cterm=underline guifg=#ce5253 gui=underline guibg=#2f1515
 hi Error           ctermfg=red        cterm=none      guifg=#101010 gui=none      guibg=#ce5252
 hi DiagnosticUnderlineError term=underline ctermfg=none cterm=underline guifg=none gui=underline guibg=none guisp=none
+hi DiagnosticUnderlineWarn  term=underdotted ctermfg=none cterm=underdotted guifg=none gui=underdotted guibg=none guisp=none
+hi DiagnosticUnderlineInfo  term=underdashed ctermfg=none cterm=underdashed guifg=none gui=underdashed guibg=none guisp=none
 "hi  StatusLine               term=none               ctermfg=white    cterm=underline guifg=#b9b9b9 gui=underline guibg=#101010
 "hi  StatusLineNC             term=none               ctermfg=darkgray cterm=underline guifg=#6e6e6e gui=underline guibg=#101010
+hi ColorColumn     ctermfg=none       cterm=underline guifg=none    gui=none      guibg=#151515
 
-hi! link DiagnosticUnderlineHint DiagnosticUnderlineError
-hi! link DiagnosticUnderlineInfo DiagnosticUnderlineError
-hi! link DiagnosticUnderlineOk   DiagnosticUnderlineError
-hi! link DiagnosticUnderlineWarn DiagnosticUnderlineError
+hi! link DiagnosticUnderlineHint DiagnosticUnderlineInfo
+hi! link DiagnosticUnderlineOk   DiagnosticUnderlineInfo
 " hi! link Special                 Normal
 " hi! link Statement               Normal
 " hi! link Type                    Normal
 " hi! link Conditional             Normal
 hi! link Character               String
-hi! link ColorColumn             Normal
+"hi! link ColorColumn             Normal
 hi! link Conditional             Statement
 hi! link Constant                Normal
 hi! link CursorColumn            Normal
@@ -100,7 +102,7 @@ hi! link FloatBorder             Normal
 hi! link Function                Number
 hi! link Identifier              Normal
 hi! link Include                 Special
-hi! link Keyword                 Normal
+hi! link Keyword                 Statement " was normal, why?
 " hi! link Keyword                 Type
 hi! link Label                   Statement " Normal
 hi! link Macro                   NormalBold

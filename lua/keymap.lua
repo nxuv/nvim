@@ -95,6 +95,11 @@ noremap("n", "<leader>w",  "<cmd>w!<cr>", { desc = "[W]rites buffer" })
 noremap("n", "<leader>cd", utils.cd_filedir, { desc = "[C]hanges [D]irectory to current file" })
 noremap("n", "<leader>ce", "<cmd>edit $MYVIMRC <bar> tcd %:h<cr>", { desc = "[C]onfig [E]dit" })
 
+-- - ---------------------------------------------------------------------------- -
+-- -                                  Find docs                                   -
+-- - ---------------------------------------------------------------------------- -
+
+-- noremap("n", "<leader>kj", "<cmd>Docs<cr>", { desc = "Open terminal with docs in current window" })
 
 -- - ---------------------------------------------------------------------------- -
 -- -                                 Programming                                  -
@@ -151,14 +156,19 @@ noremap("v", "<S-up>",   "<up>",   { desc = "Prevent buffer scroll" })
 
 noremap("n", "<leader>ow", "<cmd>Wrap<cr>",  { desc = "Toggle [O]ption - [W]rap" })
 noremap("n", "<leader>os", "<cmd>Spell<cr>", { desc = "Toggle [O]ption - [S]pell" })
+noremap("n", "<leader>oc", "<cmd>Column80<cr>", { desc = "Toggle [O]ption - 81 [C]olumn" })
+noremap("n", "<leader>oC", "<cmd>Column120<cr>", { desc = "Toggle [O]ption - 121 [C]olumn" })
 
 -- - ---------------------------------------------------------------------------- -
 -- -                                   Terminal                                   -
 -- - ---------------------------------------------------------------------------- -
 
-noremap("n", "<leader>cv", ":vsp term://$SHELL<cr>:setlocal norelativenumber<cr>:setlocal nonumber<cr>", { desc = "[C]onsole [V]split" })
-noremap("n", "<leader>cs",  ":sp term://$SHELL<cr>:setlocal norelativenumber<cr>:setlocal nonumber<cr>", { desc = "[C]onsole [S]plit" })
-noremap("n", "<leader>ct",     ":term<cr>:setlocal norelativenumber<cr>:setlocal nonumber<cr>", { desc = "[C]urrent [T]erminal" })
+-- noremap("n", "<leader>cv", ":vsp term://$SHELL<cr>:setlocal norelativenumber<cr>:setlocal nonumber<cr>", { desc = "[C]onsole [V]split" })
+-- noremap("n", "<leader>cs", ":sp term://$SHELL<cr>:setlocal norelativenumber<cr>:setlocal nonumber<cr>", { desc = "[C]onsole [S]plit" })
+-- noremap("n", "<leader>ct", ":term<cr>:setlocal norelativenumber<cr>:setlocal nonumber<cr>", { desc = "[C]urrent [T]erminal" })
+
+-- noremap("n", "<leader>jf", "<cmd>Float<cr>", { desc = "Open floating terminal (no save state)" })
+noremap("n", "<leader>df", "<cmd>Term<cr>",  { desc = "Open terminal in current buffer" })
 
 -- TODO: figure out better way
 noremap("t", "<c-v><c-v>", [[<c-\><c-n>]], { desc = "Exits terminal insert mode" })
@@ -188,15 +198,15 @@ noremap("o", "g_", ":norm vg_<cr>", { desc = "To last char in line text object" 
 noremap("o", "^", ":norm v^<cr>",   { desc = "To first char in line text object" })
 noremap("o", "0", ":norm v0<cr>",   { desc = "To start of line text object" })
 
--- - ---------------------------------------------------------------------------- -
--- -                                 Diff editing                                 -
--- - ---------------------------------------------------------------------------- -
-
-noremap("n", "<leader>df", "/=======<cr><cmd>nohl<cr>zz", { desc = "[D]iff [F]ind" })
-noremap("n", "<leader>dF", "?=======<cr><cmd>nohl<cr>zz", { desc = "[D]iff [F]ind backwards" })
-noremap("n", "<leader>di", "mf/>>>>>>> <cr>mt?<<<<<<< <cr>mk'fV'tx'kdd<cmd>nohl<cr>", { desc = "[D]iff [I]ncomming" })
-noremap("n", "<leader>do", "mf?<<<<<<< <cr>mt/>>>>>>> <cr>mk'fV'tx'kdd<cmd>nohl<cr>", { desc = "[D]iff [O]utgoing" })
-noremap("n", "<leader>db", "dd?<<<<<<< <cr>dd/>>>>>>> <cr>dd<cmd>nohl<cr>", { desc = "[D]iff [K]eep both" })
+-- -- - ---------------------------------------------------------------------------- -
+-- -- -                                 Diff editing                                 -
+-- -- - ---------------------------------------------------------------------------- -
+--
+-- noremap("n", "<leader>df", "/=======<cr><cmd>nohl<cr>zz", { desc = "[D]iff [F]ind" })
+-- noremap("n", "<leader>dF", "?=======<cr><cmd>nohl<cr>zz", { desc = "[D]iff [F]ind backwards" })
+-- noremap("n", "<leader>di", "mf/>>>>>>> <cr>mt?<<<<<<< <cr>mk'fV'tx'kdd<cmd>nohl<cr>", { desc = "[D]iff [I]ncomming" })
+-- noremap("n", "<leader>do", "mf?<<<<<<< <cr>mt/>>>>>>> <cr>mk'fV'tx'kdd<cmd>nohl<cr>", { desc = "[D]iff [O]utgoing" })
+-- noremap("n", "<leader>db", "dd?<<<<<<< <cr>dd/>>>>>>> <cr>dd<cmd>nohl<cr>", { desc = "[D]iff [K]eep both" })
 
 -- - ---------------------------------------------------------------------------- -
 -- -                                Tab navigation                                -

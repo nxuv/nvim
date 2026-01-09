@@ -6,6 +6,8 @@ local shebangList = {
     ["rund"] = "d",
     ["dub"] = "d",
     ["fish"] = "fish",
+    ["tcc"] = "c",
+    ["perl"] = "perl",
 }
 
 vim.api.nvim_create_autocmd({ "Filetype" }, {
@@ -19,7 +21,7 @@ vim.api.nvim_create_autocmd({ "Filetype" }, {
             if shebangList[interpreter] ~= nil then
                 vim.api.nvim_set_option_value("filetype", shebangList[interpreter], { buf = 0 })
             else
-                vim.api.nvim_set_option_value("filetype", interpreter, { buf = 0 })
+                -- vim.api.nvim_set_option_value("filetype", interpreter, { buf = 0 })
             end
         end
     end,

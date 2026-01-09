@@ -16,6 +16,22 @@ vim.api.nvim_create_user_command('Wrap', function()
     end
 end, {})
 
+vim.api.nvim_create_user_command('Column80', function()
+    if tostring(vim.o.colorcolumn) ~= "81" then
+        vim.o.colorcolumn = "81"
+    else
+        vim.o.colorcolumn = "0"
+    end
+end, {})
+
+vim.api.nvim_create_user_command('Column120', function()
+    if tostring(vim.o.colorcolumn) ~= "121" then
+        vim.o.colorcolumn = "121"
+    else
+        vim.o.colorcolumn = "0"
+    end
+end, {})
+
 vim.api.nvim_create_user_command('Tabs', function()
     vim.opt.expandtab = not vim.opt.expandtab
     if vim.opt.expandtab then
@@ -55,6 +71,12 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 vim.api.nvim_create_user_command("PluginsToggle", function (_)
     require("theme").plugins.toggle()
 end, { range = false, nargs = 0 })
+
+vim.api.nvim_create_user_command("Docs", function(opts) vim.cmd("Term docs -f " .. opts.args) end, { range = false, nargs = "*", bang = false })
+
+vim.api.nvim_create_user_command("Docf", function()
+    vim.cmd("Term docs -f " .. vim.bo.filetype)
+end, { range = false, nargs = 0, bang = false })
 
 -- vim.api.nvim_create_user_command('W', [[execute 'w !sudo -S tee % > /dev/null' <bar> edit!]], { range = false, nargs = 0 })
 

@@ -18,6 +18,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 if not vim.g.plugins_enabled then return end
 
 -- https://mason-registry.dev/registry/list
+-- https://github.com/neovim/nvim-lspconfig/tree/master/lsp
 
 -- vim.lsp.config('luals', {
 --     cmd = {'lua-language-server'},
@@ -44,6 +45,7 @@ local servers = {
     "serve_d",  -- d
     "vimls",    -- vim
     "vtsls",    -- javascript
+    "perlnavigator",
 }
 
 if require("modules").can_load("cmp_nvim_lsp") then
@@ -52,6 +54,20 @@ if require("modules").can_load("cmp_nvim_lsp") then
         vim.lsp.config(value, cmp_lsp.default_capabilities())
     end
 end
+
+vim.lsp.config("serve_d", {
+    cmd = {
+        "serve-d",
+        "--provide",
+        "context-snippets",
+        "--provide",
+        "default-snippets"
+    },
+    settings = {
+        enableAutoImportCompletions = true
+    },
+    dfmt = { braceStyle = "otbs" }
+})
 
 for _, value in pairs(servers) do
     vim.lsp.enable(value)

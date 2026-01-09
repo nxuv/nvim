@@ -26,22 +26,10 @@ augroup ToggleCursorLine
     autocmd WinLeave,BufLeave * setlocal nocursorline
 augroup END
 
-match ExtraWhitespace /\s\+$/
-augroup HighlightExtraWhitespace
-    autocmd!
-    autocmd BufWinEnter *
-        \ if getwininfo()[0]["terminal"] && getwininfo()[0]["quickfix"] |
-        \   match ExtraWhitespace /\s\+$/ |
-        \ endif
-    autocmd InsertEnter *
-        \ if getwininfo()[0]["terminal"] && getwininfo()[0]["quickfix"] |
-        \   match ExtraWhitespace /\s\+\%#\@<!$/ |
-        \ endif
-    autocmd InsertLeave *
-        \ if getwininfo()[0]["terminal"] && getwininfo()[0]["quickfix"] |
-        \   match ExtraWhitespace /\s\+$/ |
-        \ endif
-    autocmd BufWinLeave * call clearmatches()
-augroup END
+"match ExtraWhitespace /\s\+$/
+"autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+"autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+"autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+"autocmd BufWinLeave * call clearmatches()
 
 command StripWhitespace :%s/\s\+$//

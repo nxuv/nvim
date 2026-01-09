@@ -23,6 +23,7 @@ vim.o.completeopt   = "menuone,menu,longest,preview"
 vim.o.foldmethod    = 'manual'
 -- vim.o.foldmethod            = 'expr'
 -- vim.o.scrolloff             = 7
+vim.o.backspace     = "indent,eol,start"
 
 vim.opt.shortmess      = "filnxtToOF"
 vim.opt.autoread       = true -- default value, autoreload file
@@ -41,6 +42,8 @@ vim.opt.showmatch      = true -- highlight matching brackets
 vim.opt.showmode       = false -- no --INSERT--
 vim.opt.smartcase      = true -- Smart case
 vim.opt.smartindent    = true -- autoindent new lines
+vim.opt.cindent        = true
+vim.cmd([[set indentkeys-=0#]])
 vim.opt.so             = 0 -- cursor moves normally (no boundary)
 vim.opt.splitbelow     = true -- horizontal split down
 vim.opt.splitright     = true -- vertical split right
@@ -51,6 +54,10 @@ vim.opt.wrap           = false -- removes wrapping of lines
 vim.opt.termguicolors  = true
 -- vim.o.conceallevel = 2
 -- vim.opt.shada               = "!,'20,f1,<50,s10,h" -- oldfiles config
+
+-- nvi default: ./tags;,tags
+-- vim default: ./tags,./TAGS,tags,TAGS
+vim.o.tags = vim.o.tags .. "," .. "./.tags,.tags,./.ctags,.ctags"
 
 local backup_dir = vim.fn.stdpath('data').."/.cache"
 vim.opt.backup = true                         -- make backups before writing
@@ -138,7 +145,7 @@ vim.opt.errorformat:append("%t%*[^:]: %m")
 -- some nodejs
 vim.opt.errorformat:append("\\[%l:%c\\] %m")
 
-if vim.fn.has("win32") then
+if vim.fn.has("win32") ~= 0 then
     vim.g.clipboard = {
         name = "WslClipboard",
         copy = {

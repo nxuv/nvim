@@ -31,8 +31,11 @@ vim.pack.add({
     "https://github.com/kylechui/nvim-surround",
     -- like make but for casey/just
     "https://github.com/nxuv/just.nvim",
+    -- { dir = "/g/nxuv/just.nvim" },
     -- ripgrep in file
     "https://github.com/chrisgrieser/nvim-rip-substitute",
+    -- draw diagrams
+    "https://github.com/jbyuki/venn.nvim",
 -- - ----------------------------------- LSP ------------------------------------ -
     -- autoconfig of lsp's
     "https://github.com/neovim/nvim-lspconfig",
@@ -42,6 +45,9 @@ vim.pack.add({
     "https://github.com/hrsh7th/cmp-buffer",
     "https://github.com/hrsh7th/cmp-cmdline",
     "https://github.com/hrsh7th/cmp-path",
+    "https://github.com/hrsh7th/cmp-calc",
+    "https://github.com/quangnguyen30192/cmp-nvim-tags",
+    "https://github.com/uga-rosa/cmp-dynamic",
     -- show diagnostic number in top right
     "https://github.com/ivanjermakov/troublesum.nvim",
     -- language highlights and such
@@ -64,7 +70,8 @@ vim.pack.add({
     -- pretty tabs
     "https://github.com/nanozuki/tabby.nvim",
     -- NNN but in vim
-    "https://github.com/luukvbaal/nnn.nvim"
+    "https://github.com/luukvbaal/nnn.nvim",
+-- - --------------------------- FOR TESTING PURPOSES --------------------------- -
 })
 
 require("lazy").setup({ spec = { packages }, change_detection = { enabled = false, notify = false, }, rocks = { enabled = false } })

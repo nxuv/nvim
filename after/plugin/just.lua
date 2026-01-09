@@ -7,6 +7,7 @@ if vim.fn.executable("just") and not vim.g.use_build_make then
             fidget_message_limit = 32,
             play_sound = true,
             open_qf_on_error = true,
+            autoscroll_qf = false,
         })
         noremap("n", "<leader>bb", "<cmd>Just build<cr>", { desc = "Run build task" })
         noremap("n", "<leader>br", "<cmd>Just run<cr>"  , { desc = "Run run task"   })

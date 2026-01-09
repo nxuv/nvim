@@ -9,7 +9,8 @@ local gen_hl_groups = function()
         visual  = hl('Number').fg     or "#fe0000",
         command = hl('Identifier').fg or "#fe0000",
         fore    = hl('Normal').fg     or "#fe0000",
-        back    = hl('Normal').bg     or "#fe0000"
+        back    = hl('Normal').bg     or "#fe0000",
+        venn    = hl('Special').fg    or "#fe0000",
     }
 
     local function get_hl_table(fg, bg, opts)
@@ -31,7 +32,7 @@ local gen_hl_groups = function()
     vim.api.nvim_set_hl(0, "CustomStatusVisual",     get_hl_table(colors.visual , nil, { bold = true, reverse = true } ))
     vim.api.nvim_set_hl(0, "CustomStatusCommand",    get_hl_table(colors.command, nil, { bold = true, reverse = true } ))
     vim.api.nvim_set_hl(0, "CustomStatusRedFg",      get_hl_table(colors.replace, nil))
-
+    vim.api.nvim_set_hl(0, "CustomStatusVenn",       get_hl_table(colors.venn, nil, { bold = true, reverse = true } ))
 end
 
 local reset_stline = function()
@@ -58,6 +59,7 @@ local start_stline = function()
 
         local function stline_get_mode()
             local m = vim.fn.mode()
+            if vim.b.venn_enabled then return " DIA " end
             if m == "n"  then return " NOR " end
             if m == "R"  then return " REP " end
             if m == "v"  then return " VIS " end
@@ -72,6 +74,7 @@ local start_stline = function()
 
         local function get_mode_hl()
             local m = vim.fn.mode()
+            if vim.b.venn_enabled then return "%#CustomStatusVenn#" end
             if m == "n"  then return "%#CustomStatusNormalBold#" end
             if m == "R"  then return "%#CustomStatusReplace#" end
             if m == "v"  then return "%#CustomStatusVisual#" end
